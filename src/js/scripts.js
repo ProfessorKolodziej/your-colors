@@ -18,7 +18,7 @@ const skillList = document.querySelector('#js-skills');
 
 function buildSkill(option) {
 	return `
-		<li>
+		<li data-index="${colorPicker.colors.length}">
 			<span style="background-color: ${option.value};"></span>
 			${option.selectedOptions[0].text}
 		</li>`;
@@ -31,3 +31,17 @@ function addSkill() {
 }
 
 skillSelect.addEventListener('change', addSkill);
+
+// TODO: Update skill based on a map of values in the H ranges
+// And experience based on S value. Do not mess with L
+function updateSkill(colorObject) {
+	const skill = document.querySelector(`[data-index="${colorObject.index}"]`);
+
+	if (skill) {
+		skill.firstElementChild.style.backgroundColor = colorObject.hexString;
+	} else {
+		// Add the new skill at index 0
+	}
+}
+
+colorPicker.on('input:change', updateSkill);
