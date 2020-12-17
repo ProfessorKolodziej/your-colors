@@ -12,10 +12,10 @@
 		<h1 class="page-heading">Your colors</h1>
 		<p>Web-based careers tend to place emphasis on computer science backgrounds, but I have found in my career that often, my training in fine arts has actually been a huge advantage. Explore how your color palette might bring value to the web world too with this tool, based on a <a href="https://docs.google.com/presentation/d/1XXy23DKuiPukc5U5ecE3X6XerRSMgRtSp5GPrnX-aXQ/edit?usp=sharing">lecture I gave in Fall 2020 to my students</a> on getting a job in the web field.</p>
 		<section class="your-palette">
-			<div id="picker"></div>
+			<div id="js-picker"></div>
 			<div id="palette">
 				<label for="skill-select">Add a new skill</label>
-				<select name="skill" id="skill-select">
+				<select name="skill-select" id="js-skill-select">
 					<option value="">--Choose a skill to add--</option>
 					<option value="#b6d7a8">Problem Solving</option>
 					<option value="#baffeb">Design</option>
@@ -34,6 +34,7 @@
 				</select>
 			</div>
 		</section>
+		<ul id="js-skills" class="skill-list"></ul>
 	</main>
 </body>
 </html>

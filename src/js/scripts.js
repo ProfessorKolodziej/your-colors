@@ -2,19 +2,32 @@
 
 import iro from '@jaames/iro';
 
-const colorPicker = new iro.ColorPicker("#picker", {
-  // Set the size of the color picker
-  width: 320,
-  // Set the initial color to pure red
-  colors: [
-    'rgb(100%, 0, 0)', // pure red
-    'rgb(0, 100%, 0)', // pure green
-    'rgb(0, 0, 100%)', // pure blue
-  ],
-  layout: [
-    {
-      component: iro.ui.Wheel,
-      options: {}
-    },
-  ]
+const colorPicker = new iro.ColorPicker('#js-picker', {
+	// Set the size of the color picker
+	width: 320,
+	layout: [
+		{
+			component: iro.ui.Wheel,
+			options: {},
+		},
+	],
 });
+
+const skillSelect = document.querySelector('#js-skill-select');
+const skillList = document.querySelector('#js-skills');
+
+function buildSkill(option) {
+	return `
+		<li>
+			<span style="background-color: ${option.value};"></span>
+			${option.selectedOptions[0].text}
+		</li>`;
+}
+
+function addSkill() {
+	const skill = buildSkill(this);
+	colorPicker.addColor(this.value);
+	skillList.insertAdjacentHTML('beforeend', skill);
+}
+
+skillSelect.addEventListener('change', addSkill);
