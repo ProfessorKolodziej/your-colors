@@ -5,6 +5,7 @@ import iro from '@jaames/iro';
 const colorPicker = new iro.ColorPicker('#js-picker', {
 	// Set the size of the color picker
 	width: 320,
+	wheelAngle: 245,
 	layout: [
 		{
 			component: iro.ui.Wheel,
